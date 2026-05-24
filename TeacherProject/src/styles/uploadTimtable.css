@@ -1,0 +1,251 @@
+/* ─────────────────────────────────────────
+   uploadTimetable.css
+   Uses same admin-header / admin-main
+   classes from adminDashboard.css
+───────────────────────────────────────── */
+
+.upload-container {
+  max-width: 600px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 16px;
+}
+
+/* ── Back Button ── */
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  width: fit-content;
+  transition: color 0.2s;
+}
+.back-btn:hover {
+  color: #222;
+}
+
+/* ── Drop Zone ── */
+.drop-zone {
+  border: 2px dashed #c0c0c0;
+  border-radius: 14px;
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  background: #fafafa;
+  transition: border-color 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-active {
+  border-color: #4a90e2;
+  background: #f0f6ff;
+}
+
+.drop-zone.has-file {
+  border-style: solid;
+  border-color: #4a90e2;
+  background: #f0f6ff;
+  cursor: default;
+  padding: 24px;
+}
+
+.upload-icon {
+  font-size: 52px;
+  color: #4a90e2;
+}
+
+.drop-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.drop-sub {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.file-badge {
+  display: inline-block;
+  background: #e8f0fe;
+  color: #4a90e2;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+
+/* ── File Selected State ── */
+.file-selected {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.excel-icon {
+  font-size: 38px;
+  color: #1d7a3f;
+  flex-shrink: 0;
+}
+
+.file-info {
+  flex: 1;
+  text-align: left;
+}
+
+.file-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  word-break: break-all;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #888;
+  margin: 2px 0 0;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #cc3333;
+  font-size: 22px;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+.remove-btn:hover {
+  color: #991111;
+}
+
+/* ── Upload Button ── */
+.upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.upload-btn:hover:not(.disabled) {
+  background: #2f74cc;
+  transform: translateY(-1px);
+}
+
+.upload-btn.disabled {
+  background: #b0c4de;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Spinner ── */
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Result Cards ── */
+.result-card {
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+.success-card {
+  background: #f0fff4;
+  border: 1.5px solid #48bb78;
+}
+
+.error-card {
+  background: #fff5f5;
+  border: 1.5px solid #fc8181;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #c53030;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.result-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #276749;
+}
+
+.result-icon {
+  font-size: 26px;
+  flex-shrink: 0;
+}
+.success-icon { color: #38a169; }
+.error-icon   { color: #e53e3e; }
+
+/* ── Summary Grid ── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.summary-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #c6f6d5;
+}
+
+.summary-label {
+  display: block;
+  font-size: 11px;
+  color: #718096;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.summary-value {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: #2d3748;
+}

@@ -1,0 +1,110 @@
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+/* ================= HEADER ================= */
+
+.dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #0f5d3b;
+  color: #fff;
+  z-index: 1000;
+}
+
+.dashboard-header-content {
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ===== LOGO ===== */
+
+.dashboard-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-logo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* ================= MAIN FIX ================= */
+
+.main {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* 🔥 MAIN FIX (top pe le aya) */
+
+  padding-top: 40px;         /* 🔥 thora spacing header ke baad */
+}
+
+/* ================= CARDS ================= */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 220px);
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f5d3b;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    padding-top: 30px;
+  }
+}

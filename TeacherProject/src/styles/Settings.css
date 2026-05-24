@@ -1,0 +1,46 @@
+/* ================= BODY ================= */
+.settings-container {
+  padding: 20px;
+  background: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= HEADER ================= */
+.settings-header {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0b6632;
+}
+
+/* ================= OPTIONS ================= */
+.settings-option {
+  width: 300px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.settings-option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= TEXT ================= */
+.settings-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b6632;
+  margin: 0;
+}
+
+.logout-text {
+  color: red;
+}

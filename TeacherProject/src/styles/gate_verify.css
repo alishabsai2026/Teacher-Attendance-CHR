@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── ROOT VARS ─── */
+:root {
+  --green-deep:   #0a3d25;
+  --green-mid:    #0f5d3b;
+  --green-light:  #16834f;
+  --green-glow:   rgba(15, 93, 59, 0.18);
+  --cream:        #f5f7f4;
+  --card-bg:      #ffffff;
+  --border:       #dde8e2;
+  --text-primary: #0a2e1a;
+  --text-muted:   #6b8a78;
+  --radius-card:  28px;
+  --radius-box:   20px;
+  --shadow-card:  0 24px 60px rgba(10,61,37,0.10), 0 4px 16px rgba(10,61,37,0.06);
+}
+
+/* ─── LAYOUT ─── */
+.gate-container {
+  min-height: 100vh;
+  background: var(--cream);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(15,93,59,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 10% 90%, rgba(15,93,59,0.06) 0%, transparent 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── CARD ─── */
+.gate-inner {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  padding: 36px 28px 32px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* top accent bar */
+.gate-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green-mid), var(--green-light));
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+/* ─── HEADER ─── */
+.gate-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gate-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px var(--green-glow);
+}
+
+.gate-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+/* ── TITLE: Plus Jakarta Sans ── */
+.gate-title-wrap h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+}
+
+.gate-title-wrap p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* ─── DIVIDER ─── */
+.gate-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  border: none;
+}
+
+/* ─── IMAGE BOX ─── */
+.camera-circle {
+  width: 100%;
+  height: 260px;
+  border-radius: var(--radius-box);
+  background: #f8faf9;
+  border: 2px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+
+.camera-circle:hover {
+  border-color: var(--green-mid);
+  background: #f0f7f4;
+  box-shadow: 0 0 0 4px var(--green-glow);
+}
+
+/* empty state */
+.camera-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.camera-empty-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #e8f4ef, #d4eae1);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-empty-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--green-mid);
+}
+
+.camera-empty-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.camera-empty-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ─── IMAGE PREVIEW ─── */
+.image-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: calc(var(--radius-box) - 2px);
+  display: block;
+}
+
+/* ─── GALLERY LINK ─── */
+.gallery-link {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-mid);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s, color 0.2s;
+  padding: 4px 0;
+}
+
+.gallery-link:hover {
+  color: var(--green-deep);
+  text-decoration-color: var(--green-mid);
+}
+
+/* ─── SEND BUTTON ─── */
+.send-button {
+  width: 100%;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+  padding: 15px;
+  border-radius: 14px;
+  border: none;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+  box-shadow: 0 8px 20px var(--green-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.send-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(15,93,59,0.28);
+}
+
+.send-button:active {
+  transform: translateY(0);
+  opacity: 0.9;
+}
+
+.send-button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.send-button svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
+/* ─── HIDDEN INPUTS ─── */
+.hidden-input { display: none; }
+
+/* ─── IN-SCREEN TOAST (replaces browser alert) ─── */
+.toast-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 46, 26, 0.50);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.toast-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 20px 18px;
+  width: 100%;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.toast-dot.success { background: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,0.2); }
+.toast-dot.error   { background: #dc2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.2); }
+
+.toast-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.toast-body {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.75;
+  white-space: pre-line;
+  background: #f8faf9;
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.toast-close {
+  align-self: stretch;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.toast-close:hover { opacity: 0.88; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 480px) {
+  .gate-inner {
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+  }
+  .camera-circle { height: 230px; }
+}

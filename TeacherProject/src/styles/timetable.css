@@ -1,0 +1,249 @@
+/* ========================================
+   TIMETABLE — FIXED SINGLE SCREEN CSS
+   No scroll. Everything fits on one screen.
+   ======================================== */
+
+/* RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* 🔒 No scroll at all */
+  font-family: 'Segoe UI', sans-serif;
+  background: #e8f0ec;
+}
+
+/* ========================================
+   FULL PAGE WRAPPER — fills entire screen
+   ======================================== */
+.timetable-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ========================================
+   HEADER — fixed height at top
+   ======================================== */
+.timetable-header {
+  flex-shrink: 0;
+  height: 52px;
+  background: #0f5d3b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.timetable-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* ========================================
+   CONTROLS — date + day picker
+   ======================================== */
+.timetable-controls {
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  background: #e8f0ec;
+  flex-wrap: wrap;
+}
+
+.timetable-controls input,
+.timetable-controls select {
+  background: #1b7a55;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  color-scheme: dark;
+  min-width: 130px;
+}
+
+/* ========================================
+   CLASS LIST — fills remaining space
+   Uses flex + auto division to fit cards
+   ======================================== */
+.class-list-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 14px;
+  overflow: hidden; /* no scroll */
+  justify-content: flex-start;
+}
+
+/* ========================================
+   CARD — compact, no wasted space
+   ======================================== */
+.class-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  flex-shrink: 0;
+}
+
+.class-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.class-section {
+  font-size: 11px;
+  color: #1b7a55;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.class-subject {
+  font-size: 15px;
+  color: #1a2e22;
+  font-weight: 700;
+}
+
+.class-right {
+  display: flex;
+  align-items: center;
+}
+
+.time-box {
+  background: #0f5d3b;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ========================================
+   TOTAL CLASSES BAR — pinned at bottom
+   ======================================== */
+.total-classes-card {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #0f5d3b, #1b7a55);
+  color: #fff;
+  border-radius: 0; /* full width bar at bottom */
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 14px 10px 14px;
+  border-radius: 12px;
+}
+
+.total-classes-card .total-label {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.total-classes-card .total-value {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE (max 480px)
+   ======================================== */
+@media (max-width: 480px) {
+
+  .timetable-header {
+    height: 48px;
+  }
+
+  .timetable-header h2 {
+    font-size: 15px;
+  }
+
+  .timetable-controls {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .timetable-controls input,
+  .timetable-controls select {
+    font-size: 12px;
+    padding: 7px 10px;
+    min-width: 110px;
+  }
+
+  .class-list-wrapper {
+    gap: 7px;
+    padding: 0 10px;
+  }
+
+  .class-card {
+    padding: 9px 12px;
+    border-radius: 10px;
+  }
+
+  .class-section {
+    font-size: 10px;
+  }
+
+  .class-subject {
+    font-size: 14px;
+  }
+
+  .time-box {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .total-classes-card {
+    margin: 4px 10px 8px 10px;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+
+  .total-classes-card .total-label {
+    font-size: 13px;
+  }
+
+  .total-classes-card .total-value {
+    font-size: 15px;
+  }
+}
+
+/* ========================================
+   TABLET (481px - 768px)
+   ======================================== */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .class-list-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .total-classes-card {
+    max-width: 600px;
+    margin: 6px auto 10px auto;
+    width: calc(100% - 28px);
+  }
+}

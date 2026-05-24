@@ -1,0 +1,324 @@
+/* =============================================
+   teachersWeeklyHours.css
+   Same theme as dashboard — #0f5d3b green
+   ============================================= */
+
+/* ================= WRAPPER ================= */
+
+.wh-wrapper {
+  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;          /* ✅ scroll yahan */
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.wh-header {
+  position: sticky;          /* ✅ fixed ki jagah sticky — scroll ke saath sahi kaam karta hai */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #0f5d3b;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.wh-header-content {
+  height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+.wh-header-content h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ================= BODY ================= */
+
+.wh-body {
+  padding-bottom: 40px;      /* ✅ margin-top hataya — sticky header ke saath zaroorat nahi */
+}
+
+/* ================= CONTAINER ================= */
+
+.wh-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ================= TITLE ================= */
+
+.wh-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 18px 4px;
+}
+
+/* ================= TEACHER LIST CARD ================= */
+
+.wh-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wh-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: wh-fadeIn 0.4s ease both;
+}
+
+.wh-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.11);
+}
+
+.wh-card:active {
+  transform: scale(0.98);
+}
+
+/* ================= AVATAR ================= */
+
+.wh-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #0f5d3b;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+
+.wh-avatar-big {
+  width: 58px;
+  height: 58px;
+  font-size: 18px;
+}
+
+/* ================= NAME ================= */
+
+.wh-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.wh-arrow {
+  font-size: 22px;
+  color: #aaa;
+  line-height: 1;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.wh-back-btn {
+  background: none;
+  border: none;
+  color: #0f5d3b;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s;
+}
+
+.wh-back-btn:hover {
+  opacity: 0.7;
+}
+
+/* ================= DETAIL HEADER ================= */
+
+.wh-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.wh-detail-name {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+.wh-weekly-hours {
+  margin: 0;
+  font-size: 15px;
+  color: #0f5d3b;
+  font-weight: 500;
+}
+
+.wh-weekly-hours strong {
+  font-weight: 700;
+}
+
+/* ================= DETAIL DATE CARDS ================= */
+
+.wh-detail-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  animation: wh-fadeIn 0.4s ease both;
+}
+
+.wh-detail-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.wh-date {
+  font-size: 14px;
+  font-weight: 700;
+  color: #222;
+}
+
+.wh-hours-badge {
+  background: #e8f5ee;
+  color: #0f5d3b;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ================= TIMELINE ================= */
+
+.wh-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+}
+
+.wh-timeline-entry {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #555;
+}
+
+.wh-time-in {
+  color: #0f5d3b;
+  font-weight: 600;
+}
+
+.wh-time-out {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* ================= EMPTY STATE ================= */
+
+.wh-empty {
+  text-align: center;
+  color: #999;
+  margin-top: 40px;
+  font-size: 15px;
+}
+
+/* ================= LOADING ================= */
+
+.wh-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  gap: 14px;
+  color: #666;
+}
+
+.wh-spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #0f5d3b;
+  border-radius: 50%;
+  animation: wh-spin 0.8s linear infinite;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes wh-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wh-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+  .wh-header-content {
+    padding: 0 16px;
+  }
+
+  .wh-container {
+    padding: 16px 12px;
+  }
+
+  .wh-card {
+    padding: 14px 14px;
+  }
+
+  .wh-detail-header {
+    padding: 16px 14px;
+  }
+
+  .wh-detail-card {
+    padding: 14px 14px;
+  }
+
+  .wh-detail-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
